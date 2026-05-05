@@ -1,8 +1,6 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Animated, {
-  cancelAnimation,
-  Easing,
   useAnimatedStyle,
   useSharedValue,
   withRepeat,

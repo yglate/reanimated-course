@@ -1,7 +1,7 @@
-import { BouncingSquare } from './learnings/BouncingSquare';
+import { BouncingLoading } from './experiments/BouncingLoading';
 
 const App = () => {
-  return <BouncingSquare />;
+  return <BouncingLoading />;
 };
 
 export { App };
