@@ -1,7 +1,7 @@
-import { BouncingLoading } from './experiments/BouncingLoading';
+import { PanGesture } from './learnings/PanGesture';
 
 const App = () => {
-  return <BouncingLoading />;
+  return <PanGesture />;
 };
 
 export { App };
