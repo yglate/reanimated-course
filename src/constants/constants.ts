@@ -4,3 +4,4 @@ export const DURATION = {
 };
 
 export const SQUARE_SIZE = 120;
+export const CIRCLE_RADIUS = 30;

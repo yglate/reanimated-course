@@ -1,7 +1,7 @@
-import { PanGesture } from './learnings/PanGesture';
+import { SpatialTapGesture } from './learnings/SpatialTapGesture';
 
 const App = () => {
-  return <PanGesture />;
+  return <SpatialTapGesture />;
 };
 
 export { App };
