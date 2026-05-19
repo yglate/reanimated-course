@@ -1,7 +1,7 @@
-import { ParallaxAnimation } from './learnings/ParallaxAnimation';
+import { VerticalParallaxAnimation } from './experiments/ParallaxAnimation';
 
 const App = () => {
-  return <ParallaxAnimation />;
+  return <VerticalParallaxAnimation />;
 };
 
 export { App };

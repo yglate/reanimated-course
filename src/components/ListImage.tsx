@@ -5,7 +5,9 @@ import Animated, {
   useAnimatedStyle,
 } from 'react-native-reanimated';
 
-import { ScreenWidth } from '../constants/constants';
+import { ScreenWidth, ScreenHeight } from '../constants/constants';
+
+type Direction = 'horizontal' | 'vertical';
 
 interface ListImageProps {
   imageUri: string;
@@ -14,6 +16,7 @@ interface ListImageProps {
   imageStyle?: StyleProp<ImageStyle>;
   scrollOffset: SharedValue<number>;
   index: number;
+  direction?: Direction;
 }
 
 export const ListImage = ({
@@ -23,6 +26,7 @@ export const ListImage = ({
   imageStyle,
   scrollOffset,
   index,
+  direction = 'horizontal',
 }: ListImageProps) => {
   const inputRange = [
     itemWidth * (index - 1),
@@ -31,17 +35,18 @@ export const ListImage = ({
   ];
 
   const reanimatedImageStyle = useAnimatedStyle(() => {
-    const outputRange = [-ScreenWidth / 2, 0, ScreenWidth / 2];
-    const translateX = interpolate(scrollOffset.value, inputRange, outputRange);
+    const isVertical = direction === 'vertical';
+    const outputRange = isVertical
+      ? [-ScreenHeight / 2, 0, ScreenHeight / 2]
+      : [-ScreenWidth / 2, 0, ScreenWidth / 2];
+    const translate = interpolate(scrollOffset.value, inputRange, outputRange);
 
     return {
       transform: [
         {
           scale: 1.7,
         },
-        {
-          translateX: translateX,
-        },
+        isVertical ? { translateY: translate } : { translateX: translate },
       ],
     };
   });
