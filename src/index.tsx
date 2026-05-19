@@ -1,7 +1,7 @@
-import { VerticalParallaxAnimation } from './experiments/ParallaxAnimation';
+import { BannerListParallax } from './experiments/BannerListParallax';
 
 const App = () => {
-  return <VerticalParallaxAnimation />;
+  return <BannerListParallax />;
 };
 
 export { App };
