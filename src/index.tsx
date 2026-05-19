@@ -1,7 +1,7 @@
-import { SpatialTapGesture } from './learnings/SpatialTapGesture';
+import { ParallaxAnimation } from './learnings/ParallaxAnimation';
 
 const App = () => {
-  return <SpatialTapGesture />;
+  return <ParallaxAnimation />;
 };
 
 export { App };
