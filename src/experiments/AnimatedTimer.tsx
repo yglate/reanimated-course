@@ -6,6 +6,7 @@ import {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import { scheduleOnRN } from 'react-native-worklets';
 import {
   Text as SkText,
   Canvas,
@@ -59,7 +60,7 @@ const AnimatedTimer = () => {
         });
         if (currentCount - 1 <= 0) {
           isRunning.value = false;
-          setIconName('play');
+          scheduleOnRN(setIconName, 'play');
         }
       }
     }, DURATION.MS_1000);
@@ -68,6 +69,9 @@ const AnimatedTimer = () => {
   }, [count, isRunning]);
 
   const toggleTimer = () => {
+    if (count.value === 0) {
+      count.value = withTiming(10);
+    }
     const newState = !isRunning.value;
     isRunning.value = newState;
     setIconName(newState ? 'pause' : 'play');
