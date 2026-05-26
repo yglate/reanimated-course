@@ -1,7 +1,7 @@
-import { AnimatedText } from './learnings/AnimatedText';
+import { AnimatedTimer } from './experiments/AnimatedTimer';
 
 const App = () => {
-  return <AnimatedText />;
+  return <AnimatedTimer />;
 };
 
 export { App };
