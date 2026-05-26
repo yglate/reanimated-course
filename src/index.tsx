@@ -1,7 +1,7 @@
-import { BannerListParallax } from './experiments/BannerListParallax';
+import { AnimatedText } from './learnings/AnimatedText';
 
 const App = () => {
-  return <BannerListParallax />;
+  return <AnimatedText />;
 };
 
 export { App };
