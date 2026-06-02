@@ -19,3 +19,81 @@ export const CAROUSEL_IMAGES = [
   'https://images.unsplash.com/photo-1623093386041-a0915e5a1ca4?q=100&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   'https://images.unsplash.com/photo-1513883524931-aaab83bcb19b?q=100&w=2992&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 ];
+
+export const SECTIONS = [
+  {
+    title: 'Introduction',
+    description:
+      'Programming languages are the foundation of modern software development. They provide developers with different ways to solve problems, build applications, and communicate instructions to computers. Each language is designed with specific goals and trade-offs in mind.',
+  },
+  {
+    title: 'JavaScript',
+    description:
+      'JavaScript is the language of the web and is supported by all modern browsers. It enables interactive user experiences, dynamic content updates, and real-time communication. With technologies like Node.js, JavaScript is also widely used for backend development.',
+  },
+  {
+    title: 'Python',
+    description:
+      'Python is known for its clean syntax and ease of learning, making it popular among beginners and professionals alike. It has a rich ecosystem of libraries for data analysis, machine learning, web development, and automation. Its versatility has made it one of the most widely adopted programming languages in the world.',
+  },
+  {
+    title: 'TypeScript',
+    description:
+      'TypeScript extends JavaScript by adding static typing and powerful development tools. It helps teams catch errors earlier in the development process and improve code maintainability. Many large-scale web applications use TypeScript to increase reliability and developer productivity.',
+  },
+  {
+    title: 'Java',
+    description:
+      'Java is a mature, object-oriented language used by enterprises worldwide. Its platform independence allows applications to run on different operating systems without major modifications. Java remains a popular choice for backend services, Android applications, and large business systems.',
+  },
+  {
+    title: 'C++',
+    description:
+      'C++ provides low-level control over system resources while supporting modern programming techniques. It is commonly used in game engines, embedded systems, financial software, and operating systems. Developers choose C++ when performance and efficiency are critical requirements.',
+  },
+  {
+    title: 'C#',
+    description:
+      'C# is a modern language developed by Microsoft and is closely integrated with the .NET ecosystem. It is widely used for desktop software, web applications, cloud services, and game development through Unity. Its strong tooling and developer experience make it a favorite among many professionals.',
+  },
+  {
+    title: 'Go',
+    description:
+      'Go was designed by Google to simplify concurrent and distributed programming. It offers fast compilation times, a straightforward syntax, and excellent performance. Go has become a popular choice for cloud infrastructure, APIs, and scalable backend systems.',
+  },
+  {
+    title: 'Rust',
+    description:
+      'Rust focuses on memory safety and performance without relying on garbage collection. Its unique ownership system helps developers prevent many common programming errors at compile time. Rust is increasingly used for systems programming, web services, and performance-sensitive applications.',
+  },
+  {
+    title: 'Swift',
+    description:
+      'Swift is Apple’s modern programming language for building applications across its ecosystem. It combines safety, performance, and expressive syntax to create a productive development experience. Swift is the primary language used for iOS and macOS application development.',
+  },
+  {
+    title: 'Kotlin',
+    description:
+      'Kotlin is a concise and expressive language that runs on the Java Virtual Machine. It reduces boilerplate code and introduces modern language features while maintaining interoperability with Java. Google officially recommends Kotlin for Android development.',
+  },
+  {
+    title: 'PHP',
+    description:
+      'PHP is a server-side scripting language that powers a large portion of the internet. It is especially popular for content management systems and dynamic websites. Despite being one of the older web technologies, PHP continues to evolve and remains widely used.',
+  },
+  {
+    title: 'Ruby',
+    description:
+      'Ruby emphasizes developer happiness through its elegant and readable syntax. It became especially popular with the Ruby on Rails framework, which simplified web application development. Ruby is appreciated for its productivity and strong community support.',
+  },
+  {
+    title: 'Dart',
+    description:
+      'Dart is a language developed by Google and is best known for powering Flutter applications. It enables developers to build high-performance apps for mobile, web, desktop, and embedded devices from a single codebase. Dart combines ease of use with efficient compilation and execution.',
+  },
+  {
+    title: 'Elixir',
+    description:
+      'Elixir is a functional programming language built on the Erlang virtual machine. It is designed for highly scalable and fault-tolerant systems, making it ideal for real-time applications and distributed services. Developers often choose Elixir for systems that require high availability and reliability.',
+  },
+];

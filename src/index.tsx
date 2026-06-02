@@ -1,7 +1,7 @@
-import { AnimatedTimer } from './experiments/AnimatedTimer';
+import { ScrollablePercentage } from './learnings/ScrollablePercentage';
 
 const App = () => {
-  return <AnimatedTimer />;
+  return <ScrollablePercentage />;
 };
 
 export { App };

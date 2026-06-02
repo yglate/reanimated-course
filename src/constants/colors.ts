@@ -4,4 +4,9 @@ export const COLORS = {
   RED: '#ff4444',
   BLUE: '#0099ff',
   GREY: '#2f2f2f',
+  LIGHT_GREY: '#c4c4c4',
+  DARK_GREY: '#202020',
+  MEDIUM_GREY: '#2d2d2d',
+  PROGRESS_INDICATOR_ACTIVE: '#9d9d9d',
+  PROGRESS_INDICATOR_INACTIVE: '#191919',
 };
