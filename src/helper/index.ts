@@ -1,1 +1,2 @@
-export { getReadingTime } from './get-reading-time';
+export { getReadingTime } from './getReadingTime';
+export { generateRandomColor } from './generateRandomColor';

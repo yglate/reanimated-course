@@ -1,7 +1,7 @@
-import { LayoutAnimations } from './learnings/LayoutAnimations';
+import { LayoutTransitions } from './learnings/LayoutTransitions';
 
 const App = () => {
-  return <LayoutAnimations />;
+  return <LayoutTransitions />;
 };
 
 export { App };
