@@ -1,7 +1,7 @@
-import { ScrollablePercentage } from './learnings/ScrollablePercentage';
+import { LayoutAnimations } from './learnings/LayoutAnimations';
 
 const App = () => {
-  return <ScrollablePercentage />;
+  return <LayoutAnimations />;
 };
 
 export { App };
