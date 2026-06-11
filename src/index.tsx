@@ -1,7 +1,7 @@
-import { LayoutTransitions } from './learnings/LayoutTransitions';
+import { FamilyNumberInput } from './learnings/FamilyNumberInput';
 
 const App = () => {
-  return <LayoutTransitions />;
+  return <FamilyNumberInput />;
 };
 
 export { App };

@@ -1,8 +1,9 @@
 /* eslint-disable import/no-default-export */
 /* eslint-disable import/no-anonymous-default-export */
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { useEffect, useState } from 'react';
 import * as Font from 'expo-font';
+import { useEffect, useState } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 // Importing the custom font
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -39,7 +40,9 @@ const AppContainer = () => {
 export default () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <AppContainer />
+      <SafeAreaProvider>
+        <AppContainer />
+      </SafeAreaProvider>
     </GestureHandlerRootView>
   );
 };

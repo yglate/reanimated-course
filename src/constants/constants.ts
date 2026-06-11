@@ -97,3 +97,18 @@ export const SECTIONS = [
       'Elixir is a functional programming language built on the Erlang virtual machine. It is designed for highly scalable and fault-tolerant systems, making it ideal for real-time applications and distributed services. Developers often choose Elixir for systems that require high availability and reliability.',
   },
 ];
+
+export const BUTTON_ITEMS = [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  'C',
+  0,
+  'backspace',
+] as const;
