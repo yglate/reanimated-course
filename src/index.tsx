@@ -1,7 +1,7 @@
-import { FamilyNumberInput } from './learnings/FamilyNumberInput';
+import { SkiaMagicButton } from './learnings/SkiaMagicButton';
 
 const App = () => {
-  return <FamilyNumberInput />;
+  return <SkiaMagicButton />;
 };
 
 export { App };

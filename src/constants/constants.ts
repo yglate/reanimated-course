@@ -5,6 +5,7 @@ export const DURATION = {
   MS_500: 500,
   MS_1000: 1000,
   MS_2000: 2000,
+  MS_10000: 10000,
 };
 
 export const SQUARE_SIZE = 120;
