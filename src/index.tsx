@@ -1,7 +1,7 @@
-import { AnimatedPath } from './learnings/AnimatedPath';
+import { AnimateThroughPath } from './learnings/AnimateThroughPath';
 
 const App = () => {
-  return <AnimatedPath />;
+  return <AnimateThroughPath />;
 };
 
 export { App };
