@@ -1,7 +1,7 @@
-import { SkiaMagicButton } from './learnings/SkiaMagicButton';
+import { AnimatedPath } from './learnings/AnimatedPath';
 
 const App = () => {
-  return <SkiaMagicButton />;
+  return <AnimatedPath />;
 };
 
 export { App };
