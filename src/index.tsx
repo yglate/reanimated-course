@@ -1,7 +1,7 @@
-import { AnimateThroughPath } from './learnings/AnimateThroughPath';
+import { SkiaPanGesture } from './learnings/SkiaPanGesture';
 
 const App = () => {
-  return <AnimateThroughPath />;
+  return <SkiaPanGesture />;
 };
 
 export { App };
