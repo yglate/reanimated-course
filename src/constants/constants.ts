@@ -11,6 +11,7 @@ export const DURATION = {
 
 export const SQUARE_SIZE = 120;
 export const CIRCLE_RADIUS = 30;
+export const BOTTOM_TAB_BAR_HEIGHT = 65;
 
 export const { width: ScreenWidth, height: ScreenHeight } =
   Dimensions.get('window');
@@ -129,3 +130,11 @@ export const PRO_GRAPH_SCORES = [
   70, 35, 55, 39, 29, 46, 37, 50, 40, 45, 51, 57, 65, 73, 74, 80, 71, 71, 75,
   73, 79, 75, 74, 63, 69, 74, 79,
 ];
+
+export const SCREEN_NAMES = {
+  Home: 'Home',
+  Bookmark: 'Bookmark',
+  Add: 'Add',
+  Profile: 'Profile',
+  Settings: 'Settings',
+} as const;

@@ -1,7 +1,7 @@
-import { SkiaPanGesture } from './learnings/SkiaPanGesture';
+import { BottomTabAnimation } from './learnings/BottomTabAnimation';
 
 const App = () => {
-  return <SkiaPanGesture />;
+  return <BottomTabAnimation />;
 };
 
 export { App };
