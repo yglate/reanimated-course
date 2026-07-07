@@ -1,7 +1,7 @@
-import { BottomTabAnimation } from './learnings/BottomTabAnimation';
+import { ImageShaderTransitions } from './learnings/ImageShaderTransitions';
 
 const App = () => {
-  return <BottomTabAnimation />;
+  return <ImageShaderTransitions />;
 };
 
 export { App };
