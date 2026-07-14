@@ -1,7 +1,7 @@
-import { ImageShaderTransitions } from './learnings/ImageShaderTransitions';
+import { AnimatedTypingBubble } from './experiments/AnimatedTypingBubble/AnimatedTypingBubble';
 
 const App = () => {
-  return <ImageShaderTransitions />;
+  return <AnimatedTypingBubble />;
 };
 
 export { App };
