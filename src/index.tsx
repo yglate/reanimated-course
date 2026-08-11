@@ -1,7 +1,7 @@
-import { AnimatedTypingBubble } from './experiments/AnimatedTypingBubble/AnimatedTypingBubble';
+import { ReanimatedFour } from './learnings/ReanimatedFour';
 
 const App = () => {
-  return <AnimatedTypingBubble />;
+  return <ReanimatedFour />;
 };
 
 export { App };
