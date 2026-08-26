@@ -1,7 +1,7 @@
-import { ReanimatedFour } from './learnings/ReanimatedFour';
+import { AnimationIngredients } from './article/AnimationIngredients';
 
 const App = () => {
-  return <ReanimatedFour />;
+  return <AnimationIngredients />;
 };
 
 export { App };
