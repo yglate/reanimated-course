@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   square: {
     width: SquareSize,
     height: SquareSize,
-    backgroundColor: '#00a6ff',
+    backgroundColor: COLORS.BLUE,
     borderRadius: 30,
     borderCurve: 'continuous', // Only for iOS
     marginBottom: 50,

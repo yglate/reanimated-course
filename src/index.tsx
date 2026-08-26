@@ -1,7 +1,7 @@
-import { AnimationIngredients } from './article/AnimationIngredients';
+import { AnimationDriversExample } from './article/AnimationDriversExample';
 
 const App = () => {
-  return <AnimationIngredients />;
+  return <AnimationDriversExample />;
 };
 
 export { App };

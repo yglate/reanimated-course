@@ -13,4 +13,8 @@ export const COLORS = {
   BASE_GRAY_80: '#30302E',
   BACKGROUND: '#F1EEE8',
   TRANSPARENT: 'transparent',
+  ORANGE: '#FF9500',
+  GREEN: '#34C759',
+  BORDER_GREY: '#E5E5EA',
+  TITLE_GREY: '#1C1C1E',
 };
