@@ -1,5 +1,5 @@
 import { Dimensions } from 'react-native';
-import { GestureItem } from '../types';
+import { GestureItem, StringConfig } from '../types';
 
 export const DURATION = {
   MS_250: 250,
@@ -167,5 +167,40 @@ export const gestureData: GestureItem[] = [
     description: 'Triggers duration-based activation and haptic feedback.',
     example:
       'Pressing and holding a message in WhatsApp or iMessage to reveal context action menus.',
+  },
+];
+
+export const STRINGS: StringConfig[] = [
+  {
+    id: 1,
+    name: 'Heavy Cable',
+    spec: 'mass: 2.0 • damping: 6',
+    color: '#0284c7',
+    strokeWidth: 4,
+    springConfig: { damping: 6, stiffness: 100, mass: 2.0 },
+  },
+  {
+    id: 2,
+    name: 'Rubber Band',
+    spec: 'mass: 1.0 • damping: 10',
+    color: '#7c3aed',
+    strokeWidth: 3.5,
+    springConfig: { damping: 10, stiffness: 220, mass: 1.0 },
+  },
+  {
+    id: 3,
+    name: 'Guitar String',
+    spec: 'stiffness: 450 • mass: 0.5',
+    color: '#e11d48',
+    strokeWidth: 2,
+    springConfig: { damping: 18, stiffness: 450, mass: 0.5 },
+  },
+  {
+    id: 4,
+    name: 'Underdamped (Jelly)',
+    spec: 'damping: 3.5 • oscillating',
+    color: '#059669',
+    strokeWidth: 3,
+    springConfig: { damping: 3.5, stiffness: 130, mass: 1.0 },
   },
 ];

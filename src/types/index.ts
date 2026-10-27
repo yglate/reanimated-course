@@ -15,3 +15,16 @@ export interface GestureItem {
   description: string;
   example: string;
 }
+
+export interface StringConfig {
+  id: number;
+  name: string;
+  spec: string;
+  color: string;
+  strokeWidth: number;
+  springConfig: {
+    damping: number;
+    stiffness: number;
+    mass: number;
+  };
+}

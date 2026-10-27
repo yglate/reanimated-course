@@ -1,7 +1,7 @@
-import { AnimationAnimatedReactionVsUseEffect } from './presentation/AnimationAnimatedReactionVsUseEffect';
+import { MultiElasticStringsDemo } from './presentation/AnimationMultiElasticStringsDemo';
 
 const App = () => {
-  return <AnimationAnimatedReactionVsUseEffect />;
+  return <MultiElasticStringsDemo />;
 };
 
 export { App };
