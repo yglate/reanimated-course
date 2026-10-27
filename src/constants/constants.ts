@@ -1,4 +1,5 @@
 import { Dimensions } from 'react-native';
+import { GestureItem } from '../types';
 
 export const DURATION = {
   MS_250: 250,
@@ -138,3 +139,33 @@ export const SCREEN_NAMES = {
   Profile: 'Profile',
   Settings: 'Settings',
 } as const;
+
+export const gestureData: GestureItem[] = [
+  {
+    id: 'tap',
+    name: 'Gesture.Tap',
+    description: 'Instant spring compression on contact.',
+    example: 'Tapping a heart icon in Instagram or TikTok to like a post.',
+  },
+  {
+    id: 'pan',
+    name: 'Gesture.Pan',
+    description:
+      'Transfers finger release velocity directly into spring/decay physics.',
+    example:
+      'Swiping cards in Tinder or dragging an app card up in the iOS App Switcher.',
+  },
+  {
+    id: 'simultaneous',
+    name: 'Gesture.Simultaneous',
+    description: 'Pan, pinch, and rotate execute in a single fluid gesture.',
+    example: 'Pinch to zoom and rotate images natively at the same time.',
+  },
+  {
+    id: 'longpress',
+    name: 'Gesture.LongPress',
+    description: 'Triggers duration-based activation and haptic feedback.',
+    example:
+      'Pressing and holding a message in WhatsApp or iMessage to reveal context action menus.',
+  },
+];

@@ -8,3 +8,10 @@ export type PathPoint = {
   x: number;
   y: number;
 };
+
+export interface GestureItem {
+  id: string;
+  name: string;
+  description: string;
+  example: string;
+}

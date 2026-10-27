@@ -1,7 +1,7 @@
-import { AnimationDriversExample } from './article/AnimationDriversExample';
+import { AnimationGestureHandler } from './presentation/AnimationGestureHandler';
 
 const App = () => {
-  return <AnimationDriversExample />;
+  return <AnimationGestureHandler />;
 };
 
 export { App };
