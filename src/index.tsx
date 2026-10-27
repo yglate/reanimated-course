@@ -1,7 +1,7 @@
-import { AnimationGestureHandler } from './presentation/AnimationGestureHandler';
+import { AnimationAnimatedReactionVsUseEffect } from './presentation/AnimationAnimatedReactionVsUseEffect';
 
 const App = () => {
-  return <AnimationGestureHandler />;
+  return <AnimationAnimatedReactionVsUseEffect />;
 };
 
 export { App };
