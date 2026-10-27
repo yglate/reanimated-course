@@ -1,5 +1,6 @@
 import { Dimensions } from 'react-native';
 import { GestureItem, StringConfig } from '../types';
+import { Skia } from '@shopify/react-native-skia';
 
 export const DURATION = {
   MS_250: 250,
@@ -8,6 +9,7 @@ export const DURATION = {
   MS_1500: 1500,
   MS_2000: 2000,
   MS_10000: 10000,
+  MS_40000: 40000,
 };
 
 export const SQUARE_SIZE = 120;
@@ -204,3 +206,50 @@ export const STRINGS: StringConfig[] = [
     springConfig: { damping: 3.5, stiffness: 130, mass: 1.0 },
   },
 ];
+
+// SKSL Shader: Taken from https://gl-transitions.com/gallery
+export const shaderWaterRipple = Skia.RuntimeEffect.Make(`
+  uniform vec2 u_touch;
+  uniform float u_time;
+  uniform vec2 u_resolution;
+  uniform float u_intensity; // 0.0 = calm, 1.0 = active panning
+
+  half4 main(vec2 fragCoord) {
+    // 1. Correct aspect ratio and normalize distance relative to screen height
+    vec2 p = (fragCoord - u_touch) / u_resolution.y;
+    float dist = length(p);
+
+    // 2. Compact, localized ripple:
+    // High frequency (tighter rings) + aggressive exponential decay (keeps effect small)
+    float freq = 55.0;
+    float speed = 7.0;
+    float localizedRadius = exp(-dist * 14.0); // Concentrates waves strictly around touch point
+
+    float wave = sin(dist * freq - u_time * speed) * localizedRadius * u_intensity;
+    float slope = cos(dist * freq - u_time * speed) * localizedRadius * u_intensity;
+
+    // 3. Natural Water Palette (Deep Azure / Caribbean Cyan)
+    vec3 deepWater      = vec3(0.04, 0.38, 0.68);
+    vec3 shallowWater   = vec3(0.16, 0.62, 0.88);
+    vec3 causticCrest   = vec3(0.55, 0.90, 0.98);
+    vec3 sunGlint       = vec3(1.0, 1.0, 1.0);
+
+    // Subtle natural vertical depth gradient
+    float verticalDepth = fragCoord.y / u_resolution.y;
+    vec3 baseWater = mix(shallowWater, deepWater, verticalDepth * 0.5);
+
+    // Add gentle wave displacement
+    vec3 color = baseWater + (wave * 0.18);
+
+    // 4. Subtle highlights on crests
+    float crest = clamp(slope * 1.8, 0.0, 1.0);
+    color += causticCrest * pow(crest, 2.5) * 0.4 * u_intensity;
+    color += sunGlint * pow(crest, 6.0) * 0.65 * u_intensity;
+
+    // Soft fingertip contact point
+    float fingerContact = exp(-dist * 35.0) * 0.2 * u_intensity;
+    color += vec3(0.7, 0.95, 1.0) * fingerContact;
+
+    return half4(color, 1.0);
+  }
+`)!;

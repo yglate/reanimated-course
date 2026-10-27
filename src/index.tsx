@@ -1,7 +1,7 @@
-import { SkiaVectorScreen } from './presentation/SkiaVectorScreen';
+import { ShaderRippleDemo } from './presentation/ShaderRipple';
 
 const App = () => {
-  return <SkiaVectorScreen />;
+  return <ShaderRippleDemo />;
 };
 
 export { App };
