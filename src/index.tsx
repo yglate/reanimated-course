@@ -1,7 +1,7 @@
-import { ShaderRippleDemo } from './presentation/ShaderRipple';
+import { ComparingReanimatedVersions } from './presentation/ComparingReanimatedVersions';
 
 const App = () => {
-  return <ShaderRippleDemo />;
+  return <ComparingReanimatedVersions />;
 };
 
 export { App };
