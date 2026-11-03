@@ -28,11 +28,11 @@ export const MultiElasticStringsDemo = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#0b1120',
   },
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#0b1120',
     paddingTop: 16,
   },
   header: {
@@ -42,12 +42,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: '700',
-    color: '#0f172a',
+    color: '#f8fafc',
     letterSpacing: -0.6,
   },
   subtitle: {
     fontSize: 15,
-    color: '#64748b',
+    color: '#94a3b8',
     marginTop: 4,
   },
   list: {

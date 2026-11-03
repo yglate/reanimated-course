@@ -1,7 +1,7 @@
-import { SkiaVectorScreen } from './presentation/SkiaVectorScreen';
+import { MultiElasticStringsDemo } from './presentation/AnimationMultiElasticStringsDemo';
 
 const App = () => {
-  return <SkiaVectorScreen />;
+  return <MultiElasticStringsDemo />;
 };
 
 export { App };

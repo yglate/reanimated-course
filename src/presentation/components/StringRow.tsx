@@ -1,13 +1,10 @@
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import React from 'react';
+import { useSharedValue, withSpring } from 'react-native-reanimated';
+import { GestureDetector, usePanGesture } from 'react-native-gesture-handler';
+import { Canvas, Path, usePathValue } from '@shopify/react-native-skia';
+
 import { StringConfig } from '../../types';
-import {
-  useDerivedValue,
-  useSharedValue,
-  withSpring,
-} from 'react-native-reanimated';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import { Canvas, Path, Skia } from '@shopify/react-native-skia';
 
 const { width } = Dimensions.get('window');
 
@@ -16,27 +13,30 @@ export const StringRow = ({ config }: Readonly<{ config: StringConfig }>) => {
   const controlY = useSharedValue(centerY);
   const controlX = useSharedValue(width / 2);
 
-  const gesture = Gesture.Pan()
-    .onBegin(e => {
+  const gesture = usePanGesture({
+    onBegin: e => {
+      'worklet';
       controlX.value = e.x;
       controlY.value = e.y;
-    })
-    .onUpdate(e => {
+    },
+    onUpdate: e => {
+      'worklet';
       controlX.value = e.x;
       const deltaY = e.y - centerY;
       // Generous clamp allowing authentic displacement
       controlY.value = centerY + Math.max(-75, Math.min(75, deltaY));
-    })
-    .onEnd(() => {
+    },
+    onDeactivate: () => {
+      'worklet';
       controlY.value = withSpring(centerY, config.springConfig);
       controlX.value = withSpring(width / 2, { damping: 14, stiffness: 160 });
-    });
+    },
+  });
 
-  const animatedPath = useDerivedValue(() => {
-    const path = Skia.Path.Make();
+  const animatedPath = usePathValue(path => {
+    'worklet';
     path.moveTo(20, centerY);
     path.quadTo(controlX.value, controlY.value, width - 20, centerY);
-    return path;
   });
   return (
     <View style={styles.row}>
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     marginHorizontal: 4,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#f1f5f9',
+    borderBottomColor: '#263247',
   },
   rowHeader: {
     flexDirection: 'row',
