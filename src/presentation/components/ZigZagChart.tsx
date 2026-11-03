@@ -18,11 +18,13 @@ export const ZigzagChart = ({
 }>) => {
   const progress = useSharedValue(0);
 
-  const zigzagPath = Skia.Path.Make();
-  zigzagPath.moveTo(points[0].x, points[0].y);
+  const pathBuilder = Skia.PathBuilder.Make();
+  pathBuilder.moveTo(points[0].x, points[0].y);
   for (let i = 1; i < points.length; i++) {
-    zigzagPath.lineTo(points[i].x, points[i].y);
+    pathBuilder.lineTo(points[i].x, points[i].y);
   }
+
+  const zigzagPath = pathBuilder.detach();
 
   const triggerAnimate = useCallback(() => {
     progress.value = 0;
@@ -75,8 +77,8 @@ export const ZigzagChart = ({
 const styles = StyleSheet.create({
   card: {
     borderWidth: 1,
-    borderColor: '#f1f5f9',
-    backgroundColor: '#fafafa',
+    borderColor: '#263247',
+    backgroundColor: '#141c2b',
     borderRadius: 20,
     padding: 16,
     marginBottom: 20,
@@ -90,16 +92,16 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 17,
     fontWeight: '600',
-    color: '#0f172a',
+    color: '#f8fafc',
     letterSpacing: -0.2,
   },
   cardSubtitle: {
     fontSize: 13,
-    color: '#64748b',
+    color: '#94a3b8',
     marginTop: 2,
   },
   refreshButton: {
-    backgroundColor: '#f1f5f9',
+    backgroundColor: '#202b3d',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 8,

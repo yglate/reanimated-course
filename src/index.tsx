@@ -1,7 +1,7 @@
-import { ComparingReanimatedVersions } from './presentation/ComparingReanimatedVersions';
+import { SkiaVectorScreen } from './presentation/SkiaVectorScreen';
 
 const App = () => {
-  return <ComparingReanimatedVersions />;
+  return <SkiaVectorScreen />;
 };
 
 export { App };

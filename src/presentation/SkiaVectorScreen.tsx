@@ -62,13 +62,13 @@ export const SkiaVectorScreen = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#0b1120',
   },
   container: {
     paddingHorizontal: 24,
     paddingTop: 16,
     paddingBottom: 40,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#0b1120',
   },
   pageHeader: {
     marginBottom: 24,
@@ -76,12 +76,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#0f172a',
+    color: '#f8fafc',
     letterSpacing: -0.5,
   },
   subtitle: {
     fontSize: 14,
-    color: '#64748b',
+    color: '#94a3b8',
     marginTop: 4,
     lineHeight: 20,
   },
