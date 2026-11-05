@@ -2,17 +2,17 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { Dimensions, Pressable, StyleSheet, Text, View } from 'react-native';
 import {
-  Gesture,
   GestureDetector,
   GestureHandlerRootView,
+  usePanGesture,
 } from 'react-native-gesture-handler';
 import Animated, {
-  runOnJS,
   useAnimatedReaction,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
+import { scheduleOnRN } from 'react-native-worklets';
 
 import { COLORS } from '../constants';
 
@@ -30,9 +30,6 @@ const AnimationAnimatedReactionVsUseEffect = () => {
   const scrollOffset = useSharedValue(0);
   const contextY = useSharedValue(0);
 
-  // JS Thread emulation state specifically to show the downside of useEffect
-  const [useEffectPosition, setUseEffectPosition] = useState<number>(0);
-
   const triggerHapticFeedback = () => {
     setHapticCount(prev => prev + 1);
   };
@@ -47,25 +44,26 @@ const AnimationAnimatedReactionVsUseEffect = () => {
           current > THRESHOLD &&
           (previous === null || previous <= THRESHOLD)
         ) {
-          runOnJS(triggerHapticFeedback)();
+          scheduleOnRN(triggerHapticFeedback);
         }
       }
     },
   );
 
   const simulateUseEffectTracking = (value: number) => {
-    setUseEffectPosition(value);
     if (activeHook === 'useEffect' && value > THRESHOLD) {
       // Fires repeatedly or late due to asynchronous bridge scheduling
       triggerHapticFeedback();
     }
   };
 
-  const panGesture = Gesture.Pan()
-    .onStart(() => {
+  const panGesture = usePanGesture({
+    onActivate: () => {
+      'worklet';
       contextY.value = scrollOffset.value;
-    })
-    .onUpdate(event => {
+    },
+    onUpdate: event => {
+      'worklet';
       const nextY = Math.max(
         0,
         Math.min(
@@ -76,14 +74,15 @@ const AnimationAnimatedReactionVsUseEffect = () => {
       scrollOffset.value = nextY;
 
       if (activeHook === 'useEffect') {
-        runOnJS(simulateUseEffectTracking)(nextY);
+        scheduleOnRN(simulateUseEffectTracking, nextY);
       }
-    });
+    },
+  });
 
   const animatedHandleStyle = useAnimatedStyle(() => {
     return {
       transform: [{ translateY: scrollOffset.value }],
-      backgroundColor: scrollOffset.value > THRESHOLD ? COLORS.BLUE : '#64748b',
+      backgroundColor: scrollOffset.value > THRESHOLD ? COLORS.BLUE : '#475569',
     };
   });
 
@@ -96,14 +95,13 @@ const AnimationAnimatedReactionVsUseEffect = () => {
   const resetCanvas = (hookType: 'useAnimatedReaction' | 'useEffect') => {
     setActiveHook(hookType);
     setHapticCount(0);
-    setUseEffectPosition(0);
     scrollOffset.value = withSpring(0);
   };
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.container}>
-        <StatusBar style="auto" />
+        <StatusBar style="light" />
 
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Event Architecture</Text>
@@ -167,7 +165,7 @@ const AnimationAnimatedReactionVsUseEffect = () => {
             <Text
               style={[
                 styles.counterValue,
-                { color: hapticCount > 0 ? COLORS.BLUE : '#475569' },
+                { color: hapticCount > 0 ? COLORS.BLUE : '#94a3b8' },
               ]}>
               {hapticCount}
             </Text>
@@ -181,7 +179,7 @@ const AnimationAnimatedReactionVsUseEffect = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.WHITE,
+    backgroundColor: '#0b1120',
     paddingTop: 60,
   },
   header: {
@@ -203,16 +201,16 @@ const styles = StyleSheet.create({
   tabsContainer: {
     flexDirection: 'row',
     paddingHorizontal: 16,
-    marginBottom: 15,
+    marginVertical: 15,
     gap: 10,
   },
   tabButton: {
     flex: 1,
     paddingVertical: 10,
     borderRadius: 8,
-    backgroundColor: '#f1f5f9',
+    backgroundColor: '#202b3d',
     borderWidth: 1,
-    borderColor: '#e2e8f0',
+    borderColor: '#263247',
     alignItems: 'center',
   },
   activeTabButton: {
@@ -222,32 +220,31 @@ const styles = StyleSheet.create({
   tabButtonText: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#64748b',
+    color: '#cbd5e1',
   },
   activeTabButtonText: {
     color: COLORS.WHITE,
   },
   sandboxCanvas: {
-    flex: 1,
     marginHorizontal: 16,
     marginBottom: 20,
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#141c2b',
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: '#e2e8f0',
+    borderColor: '#263247',
     alignItems: 'center',
-    paddingTop: 15,
+    paddingVertical: 15,
   },
   instructionText: {
     fontSize: 12,
-    color: '#64748b',
+    color: '#94a3b8',
     fontWeight: '500',
     marginBottom: 15,
   },
   sliderTrackContainer: {
     width: HANDLE_SIZE,
     height: TRACK_HEIGHT,
-    backgroundColor: '#e2e8f0',
+    backgroundColor: '#263247',
     borderRadius: HANDLE_SIZE / 2,
     position: 'relative',
   },
@@ -256,7 +253,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#93c5fd',
+    backgroundColor: '#1e40af',
     borderRadius: HANDLE_SIZE / 2,
   },
   sliderHandle: {
@@ -296,7 +293,7 @@ const styles = StyleSheet.create({
   counterLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#334155',
+    color: '#cbd5e1',
   },
   counterValue: {
     fontSize: 18,
