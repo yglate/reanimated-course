@@ -112,13 +112,13 @@ export const ComparingReanimatedVersions = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#0b1120',
   },
   container: {
     paddingHorizontal: 24,
     paddingTop: 16,
     paddingBottom: 40,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#0b1120',
   },
   header: {
     marginBottom: 20,
@@ -126,17 +126,17 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     fontWeight: '700',
-    color: '#0f172a',
+    color: '#f8fafc',
     letterSpacing: -0.5,
   },
   subtitle: {
     fontSize: 18,
-    color: '#64748b',
+    color: '#94a3b8',
     marginTop: 4,
     lineHeight: 18,
   },
   toggleButton: {
-    backgroundColor: '#0f172a',
+    backgroundColor: '#202b3d',
     paddingVertical: 13,
     borderRadius: 12,
     alignItems: 'center',
@@ -152,8 +152,8 @@ const styles = StyleSheet.create({
   },
   card: {
     borderWidth: 1,
-    borderColor: '#f1f5f9',
-    backgroundColor: '#fafafa',
+    borderColor: '#263247',
+    backgroundColor: '#141c2b',
     borderRadius: 18,
     padding: 16,
     marginBottom: 18,
@@ -167,16 +167,16 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#0f172a',
+    color: '#f8fafc',
   },
   cardSub: {
     fontSize: 12,
-    color: '#64748b',
+    color: '#94a3b8',
     marginTop: 2,
   },
   track: {
     height: 56,
-    backgroundColor: '#e2e8ee',
+    backgroundColor: '#263247',
     borderRadius: 12,
     padding: 4,
     justifyContent: 'center',

@@ -1,7 +1,7 @@
-import { AnimationAnimatedReactionVsUseEffect } from './presentation/AnimationAnimatedReactionVsUseEffect';
+import { ComparingReanimatedVersions } from './presentation/ComparingReanimatedVersions';
 
 const App = () => {
-  return <AnimationAnimatedReactionVsUseEffect />;
+  return <ComparingReanimatedVersions />;
 };
 
 export { App };
